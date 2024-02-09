@@ -132,7 +132,7 @@ public class VideoLibrary
     /**
      * Creates a map of Videos sorted by categories.
      *
-     * @return a map with Video name as key, and categories as value
+     * @return a map with Video name as key, and categories as value.
      */
     public TreeMap<String, TreeSet<String>> createVideoCategoriesMap()
     {
