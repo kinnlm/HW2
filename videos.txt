@@ -1,0 +1,20 @@
+Aquaman, 143, Science Fiction
+No Time to Die, 182, Action
+Aquaman, 143, Fantasy
+Aquaman, 143, Comic Book
+No Time to Die, 182, Bond
+A Star is Born, 140, Rock
+A Star is Born, 140, Romance
+Star Trek, 126, Science Fiction
+Rogue One, 133, Science Fiction
+Rogue One, 133, Adventure
+Top Gun, 105, Action
+Top Gun, 105, Military
+Top Gun, 105, Drama
+Top Gun Maverick, 130,Action
+Top Gun Maverick, 130, Drama
+Top Gun Maverick, 130, Military
+Dune, 155, Action
+Dune, 155, Adventure
+Dune, 155, Science Fiction
+Dune, 155, Science Fiction
