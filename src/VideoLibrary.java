@@ -9,7 +9,6 @@
  * For each video, it stores it in a list and provides
  * methods for printing, and counting the videos.
  */
-package HW.HW2;
 
 
 import java.io.EOFException;

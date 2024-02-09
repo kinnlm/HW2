@@ -1,5 +1,3 @@
-package HW.HW2;
-
 import java.io.Serializable;
 import java.util.Objects;
 
