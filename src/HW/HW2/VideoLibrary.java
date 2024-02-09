@@ -26,8 +26,9 @@ import java.util.Map;
 
 public class VideoLibrary
 {
+    private static final int PAGE_BREAK_LENGHT = 70;
     // The ArrayList field to store videos
-    private ArrayList<Video> videos;
+    private final ArrayList<Video> videos;
 
     /**
      * Constructs a VideoLibrary by reading Video objects from
@@ -188,23 +189,23 @@ public class VideoLibrary
             // Print all videos
             videoLibrary.printVideos();
 
-            System.out.println("-".repeat(50));
+            System.out.println("-".repeat(PAGE_BREAK_LENGHT));
 
             videoLibrary.printUniqueVideos();
 
-            System.out.println("-".repeat(50));
+            System.out.println("-".repeat(PAGE_BREAK_LENGHT));
 
             System.out.println("Total videos: " + videoLibrary.countVideos());
 
-            System.out.println("-".repeat(50));
+            System.out.println("-".repeat(PAGE_BREAK_LENGHT));
 
             System.out.println("Total unique videos: " + videoLibrary.countUniqueVideos());
 
-            System.out.println("-".repeat(50));
+            System.out.println("-".repeat(PAGE_BREAK_LENGHT));
 
             videoLibrary.printCategories();
 
-            System.out.println("-".repeat(50));
+            System.out.println("-".repeat(PAGE_BREAK_LENGHT));
 
             TreeMap<String, TreeSet<String>> videoCategoriesMap = videoLibrary.createVideoCategoriesMap();
             for (Map.Entry<String, TreeSet<String>> entry : videoCategoriesMap.entrySet())
