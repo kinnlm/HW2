@@ -1,5 +1,15 @@
 package HW.HW2;
-
+/**
+ * Class: VideoLibrary.JAVA
+ *
+ * @Author Logan Kinnaird
+ * @Version Course ITEC 3150-3 Spring 2024
+ * Written: Feb 2, 2024
+ * <p>
+ * The VideoLibrary class represents a library of videos.
+ * For each video, it stores it in a list and provides
+ * methods for printing, and counting the videos.
+ */
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -10,12 +20,22 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.TreeMap;
-import java.util.Iterator;
+import java.util.Map;
+
+
 public class VideoLibrary
 {
     // The ArrayList field to store videos
     private ArrayList<Video> videos;
 
+    /**
+     * Constructs a VideoLibrary by reading Video objects from
+     * the specified file path.
+     *
+     * @param filePath the path to the file
+     * @throws IOException            if an input or output exception occurred
+     * @throws ClassNotFoundException if the Video class is not found
+     */
     // Constructor
     public VideoLibrary(String filePath) throws IOException, ClassNotFoundException
     {
@@ -44,7 +64,9 @@ public class VideoLibrary
         }
     }
 
-    // Method to print all videos
+    /**
+     * Prints all videos in the library.
+     */
     public void printVideos()
     {
         for (Video video : videos)
@@ -53,6 +75,9 @@ public class VideoLibrary
         }
     }
 
+    /**
+     * Prints all videos with unique names in the library.
+     */
     public void printUniqueVideos()
     {
         Set<Video> uniqueVideos = new HashSet<>(videos);
@@ -62,11 +87,21 @@ public class VideoLibrary
         }
     }
 
+    /**
+     * Counts all videos in the library.
+     *
+     * @return the amount videos
+     */
     public int countVideos()
     {
         return videos.size();
     }
 
+    /**
+     * Counts all unique videos in the library.
+     *
+     * @return the amount unique videos
+     */
     public int countUniqueVideos()
     {
         int count = 0;
@@ -78,6 +113,9 @@ public class VideoLibrary
         return count;
     }
 
+    /**
+     * Prints all unique categories of videos in the library.
+     */
     public void printCategories()
     {
         Set<String> categories = new HashSet<>();
@@ -90,13 +128,12 @@ public class VideoLibrary
             System.out.println(category);
         }
     }
-    // TODO Create a  TreeMap<String, TreeSet<String>> to contain the
-    //  name and a set that contains all of the categories for each video.
-    //  This must be done using an iterator over the video names set.
-    //  Loop through this set and create a TreeSet<String> to hold the categories.
-    //  You will need a loop to go through the list from the binary file.
-    //  Add the categories to the set.  After the inner loop completes,
-    //  put the name and set into a map.  Return the map.
+
+    /**
+     * Creates a map of Videos sorted by categories.
+     *
+     * @return a map with Video name as key, and categories as value
+     */
     public TreeMap<String, TreeSet<String>> createVideoCategoriesMap()
     {
         // Create a TreeMap<String, TreeSet<String>> map.
@@ -104,19 +141,23 @@ public class VideoLibrary
 
 // Get the unique set of video names using an iterator
         Set<String> uniqueNames = new HashSet<String>();
-        for (Video video : videos) {
+        for (Video video : videos)
+        {
             uniqueNames.add(video.getName());
         }
 
 // For each unique video name…
-        for (String name : uniqueNames) {
+        for (String name : uniqueNames)
+        {
             TreeSet<String> categories = new TreeSet<String>();
 
             // Loop through all videos
-            for (Video video : videos) {
+            for (Video video : videos)
+            {
 
                 // If the video has the current unique name…
-                if (video.getName().equals(name)) {
+                if (video.getName().equals(name))
+                {
 
                     // …add its category to the TreeSet
                     categories.add(video.getCategory());
@@ -146,15 +187,37 @@ public class VideoLibrary
             // Print all videos
             videoLibrary.printVideos();
 
+            System.out.println("-".repeat(50));
 
+            videoLibrary.printUniqueVideos();
 
+            System.out.println("-".repeat(50));
 
+            System.out.println("Total videos: " + videoLibrary.countVideos());
 
+            System.out.println("-".repeat(50));
 
+            System.out.println("Total unique videos: " + videoLibrary.countUniqueVideos());
+
+            System.out.println("-".repeat(50));
+
+            videoLibrary.printCategories();
+
+            System.out.println("-".repeat(50));
+
+            TreeMap<String, TreeSet<String>> videoCategoriesMap = videoLibrary.createVideoCategoriesMap();
+            for (Map.Entry<String, TreeSet<String>> entry : videoCategoriesMap.entrySet())
+            {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+
+            System.out.println("-".repeat(50));
 
         } catch (IOException | ClassNotFoundException e)
         {
             e.printStackTrace();
         }
+
+
     }
 }
