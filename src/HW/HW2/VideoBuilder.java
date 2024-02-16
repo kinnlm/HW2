@@ -1,9 +1,14 @@
 package HW.HW2;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+@SuppressWarnings("ClassHasNoToStringMethod")
 public class VideoBuilder
 {
     ArrayList<Video> movies = new ArrayList<>();

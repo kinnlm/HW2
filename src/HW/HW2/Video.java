@@ -3,7 +3,7 @@ package HW.HW2;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Video implements Serializable
+public class Video implements Serializable, Comparable<Video>
 {
     private String name;
     private int minutes;
@@ -57,22 +57,31 @@ public class Video implements Serializable
     }
 
 
-    public boolean equals(Video vid)
+    @Override
+    public boolean equals(Object o)
     {
-        if (this == vid)
+        if (this == o)
         {
             return true;
         }
-        if (vid == null || getClass() != vid.getClass())
+        if (o == null || getClass() != o.getClass())
         {
             return false;
         }
-        return name.equals(vid.name);
+        Video video = (Video) o;
+        return Objects.equals(name, video.name);
     }
 
     @Override
     public int hashCode()
     {
         return Objects.hash(name);
+    }
+
+
+    @Override
+    public int compareTo(Video otherVideo)
+    {
+        return this.name.compareTo(otherVideo.getName());
     }
 }
